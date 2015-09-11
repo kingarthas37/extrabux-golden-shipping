@@ -23,7 +23,7 @@ AV.Cloud.define('hello', function (request, response) {
             
             post.save(null, {
                 success: function() {
-                    response.success('okkokokk');
+                    response.success(type + ',' + userId + ',' + purchaseId);
                 },
                 error: function(err) {
                 }
