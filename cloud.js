@@ -12,16 +12,31 @@ AV.Cloud.define('hello', function (request, response) {
     query.equalTo('type', type);
 
     
-    var post = new GoldenWeek();
-    post.set("code", "12345");
-    post.set("type", "222");
-    post.save(null, {
-        success: function() {
-            response.success('okkokokk');
-        },
-        error: function(err) {
-        }
-    });
+    switch (type) {
+        
+        case 'BA':
+
+            var post = new GoldenWeek();
+            post.set("type", "BA");
+            post.set('useId',purchaseId);
+            post.set('purchaserId',purchaseId);
+            
+            post.save(null, {
+                success: function() {
+                    response.success('okkokokk');
+                },
+                error: function(err) {
+                }
+            });
+            
+        break;
+        
+        
+    }
+    
+    
+    
+    
     
 //    query.first({
 //        success: function(data) {
