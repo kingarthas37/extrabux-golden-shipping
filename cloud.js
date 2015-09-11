@@ -4,9 +4,11 @@ var AV = require('leanengine');
 
 AV.Cloud.define('hello', function (request, response) {
 
+    var type = request.params.type;
 
     var query = new AV.Query('GoldenWeek');
-
+    query.equalTo('type', type);
+    
     query.first({
         success: function(data) {
             
