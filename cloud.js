@@ -17,7 +17,17 @@ AV.Cloud.define('hello', function (request, response) {
                 response.error('查询失败，没有找到匹配的兑换码，请重新输入');
                 return;
             }
-             
+
+
+            var post = new GoldenWeek();
+            post.set("code", "12345");
+            post.set("type", "222");
+            post.save(null, {
+                success: function() {
+                },
+                error: function(err) {
+                }
+            });
  
             
             data.set('userId',userId);
