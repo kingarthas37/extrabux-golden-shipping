@@ -18,7 +18,7 @@ AV.Cloud.define('hello', function (request, response) {
 
             var post = new GoldenWeek();
             post.set("type", "BA");
-            post.set('useId',purchaseId);
+            post.set('useId',userId);
             post.set('purchaserId',purchaseId);
             
             post.save(null, {
