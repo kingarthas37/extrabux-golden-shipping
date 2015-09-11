@@ -8,7 +8,7 @@ AV.Cloud.define('hello', function (request, response) {
     var purchaseId = request.params.purchaseId;
     var type = request.params.type;
 
-    var query = new AV.Query('GoldenWeek');
+    var query = new AV.Query(GoldenWeek);
     query.equalTo('type', type);
     
     query.first({
@@ -17,16 +17,7 @@ AV.Cloud.define('hello', function (request, response) {
                 response.error('查询失败，没有找到匹配的兑换码，请重新输入');
                 return;
             }
-
-
-            GoldenWeek.set("code", "12345");
-            GoldenWeek.set("type", "222");
-            GoldenWeek.save(null, {
-                success: function() {
-                },
-                error: function(err) {
-                }
-            });
+             
  
             
             data.set('userId',userId);
