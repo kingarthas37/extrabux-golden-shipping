@@ -1,5 +1,5 @@
 var AV = require('leanengine');
-
+var GoldenWeek = AV.Object.extend('GoldenWeek');
 
 
 AV.Cloud.define('hello', function (request, response) {
@@ -19,20 +19,15 @@ AV.Cloud.define('hello', function (request, response) {
             }
 
 
-            var post = new Post();
-            post.set("code", "12345");
-            post.set("type", "222");
-
-            post.save(null, {
-                success: function(post) {
-                    // 成功保存之后，执行其他逻辑.
+            GoldenWeek.set("code", "12345");
+            GoldenWeek.set("type", "222");
+            GoldenWeek.save(null, {
+                success: function() {
                 },
-                error: function(post, error) {
-                    // 失败之后执行其他逻辑
-                    // error 是 AV.Error 的实例，包含有错误码和描述信息.
+                error: function(err) {
                 }
             });
-            
+ 
             
             data.set('userId',userId);
             data.set('purchaseId',purchaseId);
