@@ -20,7 +20,7 @@ AV.Cloud.define('type1', function (request, response) {
     userQuery.first({
         success: function(data) {
             
-            return response.success(data);
+            
             
             if(data[0]) {
                 response.success({
@@ -34,6 +34,8 @@ AV.Cloud.define('type1', function (request, response) {
                 codeQuery.first({
                     success: function(_data) {
 
+                        return response.success(_data);
+                        
                         userQuery.save(null, {
                             success: function (__data) {
                                 response.success({
