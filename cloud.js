@@ -38,6 +38,7 @@ AV.Cloud.define('type1', function (request, response) {
 
 
                 var codeQuerySaveUser = new UserWeek();
+                        codeQuerySaveUser.set('code',_data.get('code'));
                         codeQuerySaveUser.set('type', type);
                         codeQuerySaveUser.set('userId', userId);
                         codeQuerySaveUser.set('purchaseId', purchaseId);
