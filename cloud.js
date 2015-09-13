@@ -34,17 +34,15 @@ AV.Cloud.define('type1', function (request, response) {
 
                 codeQuery.first({
                     success: function(_data) {
+ 
+                        
+                        var codeQuerySaveUser = new AV.Query(UserWeek);
+                        codeQuerySaveUser.set('code','exgw7');
+                        codeQuerySaveUser.set('type', type);
+                        codeQuerySaveUser.set('userId', userId);
+                        codeQuerySaveUser.set('purchaseId', purchaseId);
 
-                        
-                        
-                        response.success(JSON.stringify(_data));
-                        
-                        
-                        
-                        var codeQuerySaveUser = new AV.Query(GoldenWeek);
-                        
-                        
-                        userQuery.save(null, {
+                        codeQuerySaveUser.save(null, {
                             success: function (__data) {
                                 response.success({
                                     success: 1,
@@ -58,11 +56,7 @@ AV.Cloud.define('type1', function (request, response) {
                         });
                         
                         
-                        response.success({
-                            success:1,
-                            msg:'领取优惠码成功！',
-                            data:_data
-                        });
+                        
                     },
                     error: function(err) {
                         response.error(err);
