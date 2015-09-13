@@ -31,6 +31,9 @@ AV.Cloud.define('type1', function (request, response) {
                 
                 var codeQuery = new AV.Query(GoldenWeek);
                 codeQuery.equalTo('type',type);
+
+                return response.success(1111);
+                
                 codeQuery.first({
                     success: function(_data) {
 
