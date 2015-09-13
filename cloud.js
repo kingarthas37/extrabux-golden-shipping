@@ -18,8 +18,11 @@ AV.Cloud.define('type1', function (request, response) {
     query.find({
         success: function(data) {
             
-            
-            
+            if(data.result) {    
+                response.success({
+                    success:0
+                });
+            } else {
 
                 var goldenWeek = new GoldenWeek();
                 goldenWeek.set('type', type);
@@ -28,8 +31,7 @@ AV.Cloud.define('type1', function (request, response) {
                 goldenWeek.save(null, {
                     success: function(data) {
                         response.success({
-                            success:1,
-                            data:data
+                            success:1
                         });
                     },
                     error: function(err) {
@@ -37,6 +39,7 @@ AV.Cloud.define('type1', function (request, response) {
                     }
                 });
                 
+            }
             
         },
         error: function(err) {
