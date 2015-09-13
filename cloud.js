@@ -17,27 +17,41 @@ AV.Cloud.define('bada', function (request, response) {
 
     query.first({
         success: function(data) {
-            response.success(data);
+            
+            if(data) {
+                
+                data.success = 0;
+                data.msg = "优惠码已生成";
+                response.success(data);
+                
+            } else {
+
+                var goldenWeek = new GoldenWeek();
+                goldenWeek.set('type', type);
+                goldenWeek.set('userId', userId);
+                goldenWeek.set('purchaseId', purchaseId);
+                goldenWeek.save(null, {
+                    success: function(data) {
+                        data.success = 1;
+                        data.msg = '成功';
+                    },
+                    error: function(err) {
+                        response.error(err);
+                    }
+                });
+                
+                
+                
+            }
+            
         },
         error: function(err) {
-            response.success(err);
+            response.error(err);
         }
     });
     
     
-//    var goldenWeek = new GoldenWeek();
-//    goldenWeek.set('type', type);
-//    goldenWeek.set('userId', userId);
-//    goldenWeek.set('purchaseId', purchaseId);
-//
-//    goldenWeek.save(null, {
-//        success: function(data) {
-//            response.success(data);
-//        },
-//        error: function(err) {
-//            response.success(err);
-//        }
-//    });
+
     
  
     
