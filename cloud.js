@@ -22,7 +22,7 @@ AV.Cloud.define('bada', function (request, response) {
                 
                 data[0].success = 0;
              //   data.set('msg','优惠码已生成');
-                response.success(typeof data + ',' + data[0].userId);
+                response.success(data[0]);
                 
             } else {
 
