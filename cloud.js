@@ -14,14 +14,13 @@ AV.Cloud.define('bada', function (request, response) {
     query.equalTo('type', type);
 
     var post = new GoldenWeek();
-    post.set('type', 'BAA');
-    post.set('userId', 'aaa');
-    post.set('purchaseId', 'bbb');
-    
+    post.set('type', type);
+    post.set('userId', userId);
+    post.set('purchaseId', purchaseId);
 
     post.save(null, {
-        success: function() {
-            response.success('namename');
+        success: function(data) {
+            response.success(data);
         },
         error: function(err) {
             response.success(err);
@@ -32,36 +31,7 @@ AV.Cloud.define('bada', function (request, response) {
     
 });
 
-
-AV.Cloud.define('bada1', function (request, response) {
-
-    var userId = request.params.userId || '';
-    var purchaseId = request.params.purchaseId || '';
-    var type = request.params.type || '';
-
-
-    var query = new AV.Query(GoldenWeek);
-
-    query.equalTo('type', type);
-
-    var post = new GoldenWeek();
-    post.set('type', 'BAA');
-    post.set('userId', 'aaa');
-    post.set('purchaseId', 'bbb');
-
-
-    post.save(null, {
-        success: function() {
-          //  response.success('namename');
-        },
-        error: function(err) {
-            response.success(err);
-        }
-    });
-
-
-
-});
+ 
 
 
 module.exports = AV.Cloud;
