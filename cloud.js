@@ -15,8 +15,11 @@ AV.Cloud.define('bada', function (request, response) {
 
     var post = new GoldenWeek();
     post.set('type', type);
-    post.set('userId', userId);
-    post.set('purchaseId', purchaseId);
+    post.set('userId', 'aaa');
+    post.set('purchaseId', 'bbb');
+    
+    
+    
 
     post.save(null, {
         success: function() {
