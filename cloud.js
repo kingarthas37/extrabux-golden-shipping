@@ -20,15 +20,17 @@ AV.Cloud.define('type1', function (request, response) {
         success: function(data) {
             
             if(data) {
+                
                 response.success({
                     success:0
                 });
+                
             } else {
 
                 var goldenWeek = new GoldenWeek();
-                goldenWeek.set('type', type);
-                goldenWeek.set('userId', userId);
-                goldenWeek.set('purchaseId', purchaseId);
+                goldenWeek.set('type', 'BA');
+                goldenWeek.set('userId', '606144');
+                goldenWeek.set('purchaseId', '78');
                 goldenWeek.save(null, {
                     success: function(data) {
                         response.success({
