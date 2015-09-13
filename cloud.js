@@ -20,8 +20,8 @@ AV.Cloud.define('bada', function (request, response) {
             
             if(data) {
                 
-                data.success = 0;
-                data.msg = "优惠码已生成";
+                data.result.success = 0;
+                data.result.msg = "优惠码已生成";
                 response.success(data);
                 
             } else {
@@ -32,8 +32,8 @@ AV.Cloud.define('bada', function (request, response) {
                 goldenWeek.set('purchaseId', purchaseId);
                 goldenWeek.save(null, {
                     success: function(data) {
-                        data.success = 1;
-                        data.msg = '成功';
+                        data.result.success = 1;
+                        data.result.msg = '成功';
                         response.success(data);
                     },
                     error: function(err) {
