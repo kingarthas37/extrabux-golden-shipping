@@ -52,7 +52,7 @@ AV.Cloud.define('bada1', function (request, response) {
 
     post.save(null, {
         success: function() {
-            response.success('namename');
+          //  response.success('namename');
         },
         error: function(err) {
             response.success(err);
