@@ -40,11 +40,12 @@ AV.Cloud.define('type1', function (request, response) {
 
 
                         userQuery.set('code','exgw7');
+                        return response.success('114'+ _data.length);
                         userQuery.set('type', '111');
                         userQuery.set('userId', '222');
                         userQuery.set('purchaseId', '333');
 
-                        return response.success('114'+ _data.length);
+                       
                         
                         codeQuerySaveUser.save(null, {
                             success: function (__data) {
