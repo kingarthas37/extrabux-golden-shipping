@@ -20,6 +20,8 @@ AV.Cloud.define('type1', function (request, response) {
     userQuery.first({
         success: function(data) {
             
+            return response.success(data);
+            
             if(data[0]) {
                 response.success({
                     success:0,
