@@ -25,7 +25,8 @@ AV.Cloud.define('type1', function (request, response) {
             if (data) {
                 response.success({
                     success: 0,
-                    msg: '您已领取优惠码'
+                    msg: '您已领取优惠码',
+                    code: data.get('code')
                 });
             } else {
 
@@ -44,7 +45,7 @@ AV.Cloud.define('type1', function (request, response) {
                             success: function () {
                                 response.success({
                                     success: 1,
-                                    msg: '领取优惠码成功！ ',
+                                    msg: '领取优惠码成功！',
                                     code:_data.get('code')
                                 });
                             },
@@ -52,8 +53,7 @@ AV.Cloud.define('type1', function (request, response) {
                                 response.error(err);
                             }
                         });
-
-
+                        
                     },
                     error: function (err) {
                         response.error(err);
