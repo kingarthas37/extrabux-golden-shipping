@@ -20,8 +20,8 @@ AV.Cloud.define('bada', function (request, response) {
             
             if(data) {
                 
-            //    data.set('success',0);
-              //  data.set('msg','优惠码已生成');
+                data.set('success',0);
+                data.set('msg','优惠码已生成');
                 response.success(data);
                 
             } else {
