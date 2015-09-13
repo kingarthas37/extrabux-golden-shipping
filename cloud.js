@@ -35,7 +35,7 @@ AV.Cloud.define('type1', function (request, response) {
                 codeQuery.first({
                     success: function(_data) {
 
-                        response.success(223);
+                        response.success(_data);
                         
                         userQuery.save(null, {
                             success: function (__data) {
