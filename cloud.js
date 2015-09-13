@@ -14,11 +14,9 @@ AV.Cloud.define('bada', function (request, response) {
     query.equalTo('type', type);
 
     var post = new GoldenWeek();
-    post.set('type', type);
+    post.set('type', 'BAA');
     post.set('userId', 'aaa');
     post.set('purchaseId', 'bbb');
-    
-    
     
 
     post.save(null, {
@@ -30,32 +28,40 @@ AV.Cloud.define('bada', function (request, response) {
         }
     });
     
-    
-    
-    
-    
-//    query.first({
-//        success: function(data) {
-//            if(!data) {
-//                response.error('查询失败，没有找到匹配的兑换码，请重新输入');
-//                return;
-//            }
-//
-//
-//            
-// 
-//            
-//            data.set('userId',userId);
-//            data.set('purchaseId',purchaseId);
-//            data.set('type',type);
-//            
-//            response.success(data);
-//        },
-//        error: function(error) {
-//            response.error("Error: " + error.code + " " + error.message);
-//        }
-//    });
+ 
     
 });
+
+
+AV.Cloud.define('bada1', function (request, response) {
+
+    var userId = request.params.userId || '';
+    var purchaseId = request.params.purchaseId || '';
+    var type = request.params.type || '';
+
+
+    var query = new AV.Query(GoldenWeek);
+
+    query.equalTo('type', type);
+
+    var post = new GoldenWeek();
+    post.set('type', 'BAA');
+    post.set('userId', 'aaa');
+    post.set('purchaseId', 'bbb');
+
+
+    post.save(null, {
+        success: function() {
+            response.success('namename');
+        },
+        error: function(err) {
+            response.success(err);
+        }
+    });
+
+
+
+});
+
 
 module.exports = AV.Cloud;
