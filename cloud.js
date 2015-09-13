@@ -16,7 +16,7 @@ AV.Cloud.define('bada', function (request, response) {
     query.equalTo('purchaseId',purchaseId);
 
     query.first({
-        success: function(results) {
+        success: function(data) {
             response.success(data);
         },
         error: function(err) {
