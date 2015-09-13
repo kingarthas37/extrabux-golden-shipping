@@ -20,7 +20,8 @@ AV.Cloud.define('type1', function (request, response) {
             
             if(data[0]) {    
                 response.success({
-                    success:0
+                    success:0,
+                    msg:'您已领取优惠码'
                 });
             } else {
 
@@ -29,10 +30,11 @@ AV.Cloud.define('type1', function (request, response) {
                 goldenWeek.set('userId', userId);
                 goldenWeek.set('purchaseId', purchaseId);
                 goldenWeek.save(null, {
-                    success: function(data) {
+                    success: function() {
                         response.success({
                             success:1,
-                            data:data
+                            msg:'领取优惠码成功！',
+                            data:data[0].code
                         });
                     },
                     error: function(err) {
