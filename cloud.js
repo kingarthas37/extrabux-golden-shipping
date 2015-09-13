@@ -27,6 +27,7 @@ AV.Cloud.define('type1', function (request, response) {
                 });
             } else {
 
+                response.success(222);
                 
                 var codeQuery = new AV.Query(GoldenWeek);
                 codeQuery.equalTo('type',type);
