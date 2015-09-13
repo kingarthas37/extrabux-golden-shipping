@@ -9,6 +9,7 @@ AV.Cloud.define('type1', function (request, response) {
     var purchaseId = request.params.purchaseId || '';
     var type = request.params.type || '';
 
+    return response.success(userId + purchaseId + type);
     
     var query = new AV.Query(GoldenWeek);
     
@@ -21,12 +22,10 @@ AV.Cloud.define('type1', function (request, response) {
             
             return response.success(data);
             
-            if(data) {
-                
+            if(data) {    
                 response.success({
                     success:0
                 });
-                
             } else {
 
                 var goldenWeek = new GoldenWeek();
