@@ -4,20 +4,19 @@ var GoldenWeek = AV.Object.extend('GoldenWeek');
 
 AV.Cloud.define('bada', function (request, response) {
 
-    var userId = request.params.userId;
-    var purchaseId = request.params.purchaseId;
-    var type = request.params.type;
+    var userId = request.params.userId || '';
+    var purchaseId = request.params.purchaseId || '';
+    var type = request.params.type || '';
 
-   // response.success(request);
     
     var query = new AV.Query(GoldenWeek);
     
     query.equalTo('type', type);
 
     var post = new GoldenWeek();
-    post.set('type', 'BA');
-    post.set('userId','abc');
-    post.set('purchaseId','def');
+    post.set('type', type);
+    post.set('userId', userId);
+    post.set('purchaseId', purchaseId);
 
     post.save(null, {
         success: function() {
