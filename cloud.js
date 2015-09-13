@@ -38,16 +38,15 @@ AV.Cloud.define('type1', function (request, response) {
                         
                         var codeQuerySaveUser = new AV.Query(UserWeek);
                         codeQuerySaveUser.set('code','exgw7');
-                        codeQuerySaveUser.set('type', type);
-                        codeQuerySaveUser.set('userId', userId);
-                        codeQuerySaveUser.set('purchaseId', purchaseId);
+                        codeQuerySaveUser.set('type', '111');
+                        codeQuerySaveUser.set('userId', '222');
+                        codeQuerySaveUser.set('purchaseId', '333');
 
                         codeQuerySaveUser.save(null, {
                             success: function (__data) {
                                 response.success({
                                     success: 1,
-                                    msg: '领取优惠码成功！',
-                                    data: __data
+                                    msg: '领取优惠码成功！'
                                 });
                             },
                             error: function (err) {
