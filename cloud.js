@@ -35,6 +35,7 @@ AV.Cloud.define('type1', function (request, response) {
                 codeQuery.first({
                     success: function(_data) {
  
+                       return response.success('111'+ _data.code);
                         
                         var codeQuerySaveUser = new AV.Query(UserWeek);
                         codeQuerySaveUser.set('code','exgw7');
