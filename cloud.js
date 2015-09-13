@@ -8,8 +8,6 @@ AV.Cloud.define('type1', function (request, response) {
     var userId = request.params.userId || '';
     var purchaseId = request.params.purchaseId || '';
     var type = request.params.type || '';
-
-    return response.success(userId + purchaseId + type);
     
     var query = new AV.Query(GoldenWeek);
     
@@ -20,13 +18,8 @@ AV.Cloud.define('type1', function (request, response) {
     query.find({
         success: function(data) {
             
-            return response.success(data);
             
-            if(data) {    
-                response.success({
-                    success:0
-                });
-            } else {
+            
 
                 var goldenWeek = new GoldenWeek();
                 goldenWeek.set('type', type);
@@ -35,7 +28,8 @@ AV.Cloud.define('type1', function (request, response) {
                 goldenWeek.save(null, {
                     success: function(data) {
                         response.success({
-                            success:1
+                            success:1,
+                            data:data
                         });
                     },
                     error: function(err) {
@@ -43,7 +37,6 @@ AV.Cloud.define('type1', function (request, response) {
                     }
                 });
                 
-            }
             
         },
         error: function(err) {
