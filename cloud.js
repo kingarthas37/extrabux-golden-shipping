@@ -18,9 +18,8 @@ AV.Cloud.define('type1', function (request, response) {
     query.find({
         success: function(data) {
 
-            return response.success(data);
             
-            if(data.result) {    
+            if(data[0]) {    
                 response.success({
                     success:0
                 });
