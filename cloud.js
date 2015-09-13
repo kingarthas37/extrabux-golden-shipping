@@ -23,7 +23,7 @@ AV.Cloud.define('bada', function (request, response) {
 
     post.save(null, {
         success: function() {
-            response.success(type + ',' + userId + ',' + purchaseId);
+            response.success('namename');
         },
         error: function(err) {
             response.success(err);
