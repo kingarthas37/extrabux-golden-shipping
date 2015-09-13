@@ -34,6 +34,7 @@ AV.Cloud.define('bada', function (request, response) {
                     success: function(data) {
                         data.success = 1;
                         data.msg = '成功';
+                        response.success(data);
                     },
                     error: function(err) {
                         response.error(err);
