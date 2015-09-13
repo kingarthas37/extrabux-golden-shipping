@@ -2,7 +2,7 @@ var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
 
 
-AV.Cloud.define('hello', function (request, response) {
+AV.Cloud.define('bada', function (request, response) {
 
     var userId = request.params.userId;
     var purchaseId = request.params.purchaseId;
@@ -11,28 +11,19 @@ AV.Cloud.define('hello', function (request, response) {
     var query = new AV.Query(GoldenWeek);
     query.equalTo('type', type);
 
-    
-    switch (type) {
-        
-        case 'BA':
+    var post = new GoldenWeek();
+    post.set('type', 'BA');
+    post.set('userId',userId);
+    post.set('purchaseId',purchaseId);
 
-            var post = new GoldenWeek();
-            post.set("type", "BA");
-            post.set('userId',userId);
-            post.set('purchaseId',purchaseId);
-            
-            post.save(null, {
-                success: function() {
-                    response.success(type + ',' + userId + ',' + purchaseId);
-                },
-                error: function(err) {
-                }
-            });
-            
-        break;
-        
-        
-    }
+    post.save(null, {
+        success: function() {
+            response.success(type + ',' + userId + ',' + purchaseId);
+        },
+        error: function(err) {
+
+        }
+    });
     
     
     
