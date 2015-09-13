@@ -8,7 +8,7 @@ AV.Cloud.define('bada', function (request, response) {
     var purchaseId = request.params.purchaseId;
     var type = request.params.type;
 
-    response.success(request);
+   // response.success(request);
     
     var query = new AV.Query(GoldenWeek);
     
