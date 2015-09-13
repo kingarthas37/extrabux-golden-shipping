@@ -28,6 +28,8 @@ AV.Cloud.define('type1', function (request, response) {
                     msg:'您已领取优惠码'
                 });
             } else {
+
+                return response.success(1111);
                 
                 var codeQuery = new AV.Query(GoldenWeek);
                 codeQuery.equalTo('type',type);
