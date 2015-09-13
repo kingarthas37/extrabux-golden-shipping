@@ -1,6 +1,6 @@
 var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
-var UserWeek = AV.Object.extend('UserWeek');
+var UserWeek = AV.Object.extend('GoldenUser');
 
 
 //笨鸟，八达
