@@ -20,27 +20,19 @@ AV.Cloud.define('type1', function (request, response) {
     userQuery.first({
         success: function(data) {
             
-            response.success(data);
-            
-            if(data[0]) {
-                return response.success(1111);
+            if(data) {
                 response.success({
                     success:0,
                     msg:'您已领取优惠码'
                 });
             } else {
 
-                return response.success(222);
                 
                 var codeQuery = new AV.Query(GoldenWeek);
                 codeQuery.equalTo('type',type);
 
-                
                 codeQuery.first({
-                    success: function(_data) {
-
-                        return response.success(_data);
-                        
+                    success: function(_data) {                        
                         userQuery.save(null, {
                             success: function (__data) {
                                 response.success({
