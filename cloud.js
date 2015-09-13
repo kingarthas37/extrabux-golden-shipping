@@ -37,28 +37,26 @@ AV.Cloud.define('type1', function (request, response) {
 
 
 
+                var codeQuerySaveUser = new UserWeek();
+                        codeQuerySaveUser.set('type', type);
+                        codeQuerySaveUser.set('userId', userId);
+                        codeQuerySaveUser.set('purchaseId', purchaseId);
+                        codeQuerySaveUser.save(null, {
+                    success: function() {
+                        response.success({
+                            success:1,
+                            msg:'领取优惠码成功！'
+                        });
+                    },
+                    error: function(err) {
+                        response.error(err);
+                    }
+                });
 
-
-                        userQuery.set('code','exgw7');
-                        return response.success('114'+ _data.length);
-                        userQuery.set('type', '111');
-                        userQuery.set('userId', '222');
-                        userQuery.set('purchaseId', '333');
-
+                        
                        
                         
-                        codeQuerySaveUser.save(null, {
-                            success: function (__data) {
-                                response.success({
-                                    success: 1,
-                                    msg: '领取优惠码成功！'
-                                });
-                            },
-                            error: function (err) {
-                                response.error(err);
-                            }
-                        });
-                        
+                   
                         
                         
                     },
