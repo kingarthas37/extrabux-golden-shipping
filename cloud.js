@@ -16,15 +16,15 @@ AV.Cloud.define('bada', function (request, response) {
 
     var post = new GoldenWeek();
     post.set('type', 'BA');
-    post.set('userId',userId);
-    post.set('purchaseId',purchaseId);
+    post.set('userId','abc');
+    post.set('purchaseId','def');
 
     post.save(null, {
         success: function() {
             response.success(type + ',' + userId + ',' + purchaseId);
         },
         error: function(err) {
-            
+            response.success(err);
         }
     });
     
