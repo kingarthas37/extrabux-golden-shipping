@@ -2,7 +2,8 @@ var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
 
 
-AV.Cloud.define('bada', function (request, response) {
+//笨鸟，八达
+AV.Cloud.define('type1', function (request, response) {
 
     var userId = request.params.userId || '';
     var purchaseId = request.params.purchaseId || '';
@@ -20,10 +21,8 @@ AV.Cloud.define('bada', function (request, response) {
             
             if(data) {
                 response.success({
-                    success:0,
-                    data:data
+                    success:0
                 });
-                
             } else {
 
                 var goldenWeek = new GoldenWeek();
@@ -32,9 +31,6 @@ AV.Cloud.define('bada', function (request, response) {
                 goldenWeek.set('purchaseId', purchaseId);
                 goldenWeek.save(null, {
                     success: function(data) {
-
-                       // data.set('success',1);
-                    //    data.set('msg','成功');
                         response.success({
                             success:1
                         });
@@ -43,8 +39,6 @@ AV.Cloud.define('bada', function (request, response) {
                         response.error(err);
                     }
                 });
-                
-                
                 
             }
             
