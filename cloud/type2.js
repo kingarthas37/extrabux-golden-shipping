@@ -6,7 +6,7 @@ var UserWeek = AV.Object.extend('GoldenUser');
 
 
 //笨鸟，八达
-AV.Cloud.define('type1', function (request, response) {
+AV.Cloud.define('type2', function (request, response) {
 
     var userId = request.params.userId || '';
     var purchaseId = request.params.purchaseId || '';
