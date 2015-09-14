@@ -18,7 +18,6 @@ AV.Cloud.define('type1', function (request, response) {
     userQuery.equalTo('userId', userId);
     userQuery.equalTo('purchaseId', purchaseId);
 
-
     userQuery.first({
         success: function (data) {
 
