@@ -24,7 +24,7 @@ AV.Cloud.define('type3', function (request, response) {
                 if (data.get('type') === type) {
                     response.success({
                         success: 0,
-                        msg: '您已领取优惠码',
+                        msg: '您的账户只能领取一次优惠码',
                         code: data.get('code'),
                         type: data.get('type')
                     });
