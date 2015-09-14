@@ -13,6 +13,7 @@ AV.Cloud.define('type3', function (request, response) {
     var type = request.params.type || '';
 
     var userQuery = new AV.Query(UserWeek);
+    
 
     userQuery.equalTo('type', type);
     userQuery.equalTo('userId', userId);
@@ -33,6 +34,13 @@ AV.Cloud.define('type3', function (request, response) {
 
                 codeQuery.first({
                     success: function (_data) {
+                        
+                        if(!_data) {
+                            return response.success({
+                                success:2,
+                                msg:'优惠码已领取完'
+                            });
+                        }
                         
                         var codeQuerySaveUser = new UserWeek();
                         codeQuerySaveUser.set('code', _data.get('code'));
