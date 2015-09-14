@@ -21,12 +21,21 @@ AV.Cloud.define('type3', function (request, response) {
         success: function (data) {
 
             if (data) {
-                response.success({
-                    success: 0,
-                    msg: '您已领取优惠码',
-                    code: data.get('code'),
-                    type: data.get('type')
-                });
+                
+                if (data.get('type') === type) {
+                    response.success({
+                        success: 0,
+                        msg: '您已领取优惠码',
+                        code: data.get('code'),
+                        type: data.get('type')
+                    });
+                } else {
+                    response.success({
+                        success: 3,
+                        msg: '同一purchase只能领取一次优惠码'
+                    });
+                }
+                
             } else {
 
                 var codeQuery = new AV.Query(GoldenWeek);
