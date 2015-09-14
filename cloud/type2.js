@@ -31,7 +31,6 @@ AV.Cloud.define('type2', function (request, response) {
 
                 var codeQuery = new AV.Query(GoldenWeek);
                 codeQuery.equalTo('type', type);
-                codeQuery.equalTo('used',false);
 
                 codeQuery.first({
                     success: function (_data) {
@@ -43,11 +42,25 @@ AV.Cloud.define('type2', function (request, response) {
                         codeQuerySaveUser.set('purchaseId', purchaseId);
                         codeQuerySaveUser.save(null, {
                             success: function () {
-                                response.success({
-                                    success: 1,
-                                    msg: '领取优惠码成功！',
-                                    code:_data.get('code')
+
+
+                                codeQuery.destroyAll({
+                                    success: function(){
+                                        // 成功删除 query 命中的所有实例.
+
+                                        response.success({
+                                            success: 1,
+                                            msg: '领取优惠码成功！',
+                                            code:_data.get('code')
+                                        });
+                                        
+                                    },
+                                    error: function(err){
+                                        // 失败了.
+                                    }
                                 });
+                                
+                                
                             },
                             error: function (err) {
                                 response.error(err);
