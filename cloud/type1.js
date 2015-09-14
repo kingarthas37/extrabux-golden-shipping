@@ -14,14 +14,13 @@ AV.Cloud.define('type1', function (request, response) {
 
     var userQuery = new AV.Query(UserWeek);
 
-    userQuery.equalTo('type', type);
     userQuery.equalTo('userId', userId);
     userQuery.equalTo('purchaseId', purchaseId);
 
     userQuery.first({
         success: function (data) {
 
-            if (data) {
+            if (data.get('type') === type) {
                 response.success({
                     success: 0,
                     msg: '您已领取优惠码',
