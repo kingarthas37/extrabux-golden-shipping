@@ -31,7 +31,7 @@ AV.Cloud.define('type1', function (request, response) {
                     });
                 } else {
                     response.success({
-                        success: 2,
+                        success: 3,
                         msg: '同一purchase只能领取一次优惠码'
                     });
                 }
