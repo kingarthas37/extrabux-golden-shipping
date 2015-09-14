@@ -43,23 +43,15 @@ AV.Cloud.define('type2', function (request, response) {
                         codeQuerySaveUser.save(null, {
                             success: function () {
 
+                                _data.destroy();
 
-                                codeQuery.destroyAll({
-                                    success: function(){
-                                        // 成功删除 query 命中的所有实例.
-
-                                        response.success({
-                                            success: 1,
-                                            msg: '领取优惠码成功！',
-                                            code:_data.get('code')
-                                        });
-                                        
-                                    },
-                                    error: function(err){
-                                        // 失败了.
-                                    }
-                                });
-                                
+                               setTimeout(function() {
+                                   response.success({
+                                       success: 1,
+                                       msg: '领取优惠码成功！',
+                                       code:_data.get('code')
+                                   });
+                               },3000);
                                 
                             },
                             error: function (err) {
