@@ -25,7 +25,8 @@ AV.Cloud.define('type1', function (request, response) {
                 response.success({
                     success: 0,
                     msg: '您已领取优惠码',
-                    code: data.get('code')
+                    code: data.get('code'),
+                    type: data.get('type')
                 });
             } else {
 
