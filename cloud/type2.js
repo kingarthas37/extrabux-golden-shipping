@@ -42,17 +42,13 @@ AV.Cloud.define('type2', function (request, response) {
                         codeQuerySaveUser.set('purchaseId', purchaseId);
                         codeQuerySaveUser.save(null, {
                             success: function () {
-
-                                _data.destroy();
-
-                               setTimeout(function() {
-                                   response.success({
-                                       success: 1,
-                                       msg: '领取优惠码成功！',
-                                       code:_data.get('code')
-                                   });
-                               },3000);
-                                
+                                _data.destroy().then(function() {
+                                    response.success({
+                                        success: 1,
+                                        msg: '领取优惠码成功！',
+                                        code:_data.get('code')
+                                    });
+                                });
                             },
                             error: function (err) {
                                 response.error(err);
