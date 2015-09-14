@@ -14,7 +14,6 @@ AV.Cloud.define('type2', function (request, response) {
 
     var userQuery = new AV.Query(UserWeek);
 
-    userQuery.equalTo('type', type);
     userQuery.equalTo('userId', userId);
     userQuery.equalTo('purchaseId', purchaseId);
 
