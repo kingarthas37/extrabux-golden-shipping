@@ -4,6 +4,7 @@ var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
 var UserWeek = AV.Object.extend('GoldenUser');
 
+var hash = require('./hash');
 
 //转运邦
 AV.Cloud.define('type3', function (request, response) {
@@ -11,6 +12,11 @@ AV.Cloud.define('type3', function (request, response) {
     var userId = request.params.userId || '';
     var purchaseId = request.params.purchaseId || '';
     var type = request.params.type || '';
+    var signature = request.params.signature || '';
+
+    if(!hash(signature,userId,purchaseId)) {
+        return response.error('Error');
+    }
 
     var userQuery = new AV.Query(UserWeek);
     

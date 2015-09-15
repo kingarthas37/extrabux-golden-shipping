@@ -4,6 +4,7 @@ var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
 var UserWeek = AV.Object.extend('GoldenUser');
 
+var hash = require('./hash');
 
 //笨鸟，八达 , 斑马 ，转运四方
 AV.Cloud.define('type1', function (request, response) {
@@ -11,7 +12,12 @@ AV.Cloud.define('type1', function (request, response) {
     var userId = request.params.userId || '';
     var purchaseId = request.params.purchaseId || '';
     var type = request.params.type || '';
+    var signature = request.params.signature || '';
 
+    if(!hash(signature,userId,purchaseId)) {
+        return response.error('Error');
+    }
+    
     var userQuery = new AV.Query(UserWeek);
 
     userQuery.equalTo('userId', userId);
