@@ -6,6 +6,7 @@ var UserWeek = AV.Object.extend('GoldenUser');
 
 var hash = require('./hash');
 
+
 //笨鸟，八达 , 斑马 ，转运四方
 AV.Cloud.define('type1', function (request, response) {
 
