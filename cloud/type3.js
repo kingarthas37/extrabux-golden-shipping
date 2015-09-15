@@ -15,7 +15,7 @@ AV.Cloud.define('type3', function (request, response) {
     var signature = request.params.signature || '';
 
     if(!hash(signature,userId,purchaseId)) {
-        return response.error('Error');
+        return response.error('Success Error');
     }
 
     var userQuery = new AV.Query(UserWeek);
