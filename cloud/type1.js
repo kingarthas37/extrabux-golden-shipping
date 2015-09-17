@@ -4,7 +4,7 @@ var AV = require('leanengine');
 var GoldenWeek = AV.Object.extend('GoldenWeek');
 var UserWeek = AV.Object.extend('GoldenUser');
 
-var hash = require('./hash');
+var hash = require('./hash'); 
 
 
 //笨鸟，八达 , 斑马 ，转运四方  
