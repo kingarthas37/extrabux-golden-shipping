@@ -22,7 +22,7 @@ AV.Cloud.define('2015-BANMA', function (request, response) {
     codeQuery.first({
         success: function (_data) {
 
-            response.success(111);
+            response.success(_data.get('code') + ',' + type + userId);
             
             var codeQuerySaveUser = new BlackFridayUser();
             codeQuerySaveUser.set('code', _data.get('code'));
