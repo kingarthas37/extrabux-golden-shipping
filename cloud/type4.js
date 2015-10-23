@@ -14,7 +14,6 @@ AV.Cloud.define('2015-BANMA', function (request, response) {
     var userId = request.params.userId || '';
     var type = request.params.type || '';
 
-    response.success(userId + ',' + type);
     var codeQuery = new AV.Query(BlackFriday);
     codeQuery.equalTo('type', type);
 
