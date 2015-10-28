@@ -16,7 +16,7 @@ AV.Cloud.define('2015-BANMA', function (request, response) {
     var signature = request.params.signature || '';
 
     if(!hash(signature,userId)) {
-        return response.error('Success Error');
+      //  return response.error('Success Error');
     }
     
     var codeQuery = new AV.Query(BlackFriday);
