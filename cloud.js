@@ -6,9 +6,7 @@ require('./cloud/type2');
 require('./cloud/type3');
 
 require('./cloud/promo-2015-blackfriday-banma');
-require('./cloud/promo-2015-blackfriday-benniao');
-require('./cloud/promo-2015-blackfriday-bada');
-require('./cloud/promo-2015-blackfriday-sifang');
+ 
 
 AV.Cloud.define('test', function (request, response) {
     response.success('test ok');
