@@ -9,7 +9,7 @@ var hash = require('./hash');
 
 
 //2015 Black Friday 斑马
-AV.Cloud.define('2015-B', function (request, response) {
+AV.Cloud.define('2015-BANMA', function (request, response) {
 
     var userId = request.params.userId || '';
     var type = request.params.type || '';
