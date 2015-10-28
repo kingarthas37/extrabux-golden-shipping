@@ -11,6 +11,7 @@ var hash = require('./hash');
 //2015 Black Friday 斑马
 AV.Cloud.define('2015-BANMA', function (request, response) {
 
+    console.info(111);
     var userId = request.params.userId || '';
     var type = request.params.type || '';
     var signature = request.params.signature || '';

@@ -6,6 +6,9 @@ require('./cloud/type2');
 require('./cloud/type3');
 
 require('./cloud/promo-2015-banma');
+require('./cloud/promo-2015-bada');
+require('./cloud/promo-2015-benniao');
+require('./cloud/promo-2015-sifang');
  
 
 AV.Cloud.define('test', function (request, response) {
