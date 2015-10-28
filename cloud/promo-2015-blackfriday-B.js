@@ -9,20 +9,22 @@ var hash = require('./hash');
 
 
 //2015 Black Friday 斑马
-AV.Cloud.define('2015-BANMA', function (request, response) {
+AV.Cloud.define('2015-B', function (request, response) {
 
     var userId = request.params.userId || '';
     var type = request.params.type || '';
+    var signature = request.params.signature || '';
 
-    var codeQuery = new AV.Query(BlackFriday);
+    if(!hash(signature,userId)) {
+        return response.error('Success Error');
+    }
     
+    var codeQuery = new AV.Query(BlackFriday);
     
     codeQuery.equalTo('type', type);
 
     codeQuery.first({
         success: function (_data) {
-
-            response.success(_data.get('code') + ',' + type + userId);
             
             var codeQuerySaveUser = new BlackFridayUser();
             codeQuerySaveUser.set('code', _data.get('code'));
