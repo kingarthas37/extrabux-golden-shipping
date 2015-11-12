@@ -1,7 +1,7 @@
 'use strict';
 
 var AV = require('leanengine');
-var ShippingCompany = AV.Object.extend('ShippingCompany');
+var ShippingCompanyTJ = AV.Object.extend('ShippingCompanyTJ');
 var ShippingCompanyUser = AV.Object.extend('ShippingCompanyUser');
 
 var hash = require('./hash'); 
@@ -18,7 +18,7 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
       //  return response.error('Success Error');
     }
     
-    var codeQuery = new AV.Query(ShippingCompany);
+    var codeQuery = new AV.Query(ShippingCompanyTJ);
     
     codeQuery.equalTo('type', type);
 
