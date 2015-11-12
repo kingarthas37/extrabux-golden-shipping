@@ -10,10 +10,7 @@ require('./cloud/promo-2015-bada');
 require('./cloud/promo-2015-benniao');
 require('./cloud/promo-2015-sifang');
 
-require('./cloud/promo-shipping-company-banma');
-require('./cloud/promo-shipping-company-bada');
-require('./cloud/promo-shipping-company-benniao');
-require('./cloud/promo-shipping-company-sifang');
+require('./cloud/promo-shipping-company');
 require('./cloud/promo-shipping-company-tj');
  
 
