@@ -7,7 +7,7 @@ var ShippingCompanyUser = AV.Object.extend('ShippingCompanyUser');
 var hash = require('./hash'); 
 
 
-var companys = ['BA','B','SF','BANMA'];
+var companys = ['BA','B','SF','BANMA','YS','YD','FD','TM','HG'];
 
 companys.forEach(function (n) {
     AV.Cloud.define('shipping-company-' + n, function (request, response) {
