@@ -14,6 +14,7 @@ require('./cloud/promo-shipping-company-banma');
 require('./cloud/promo-shipping-company-bada');
 require('./cloud/promo-shipping-company-benniao');
 require('./cloud/promo-shipping-company-sifang');
+require('./cloud/promo-shipping-company-tj');
  
 
 AV.Cloud.define('test', function (request, response) {
