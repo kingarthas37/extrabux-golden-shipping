@@ -49,7 +49,7 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
         },
         error: function (err) {
             
-            response.success(AV.Error);
+            response.success('kingarthas',AV.Error);
             
             response.error(err);
         }
