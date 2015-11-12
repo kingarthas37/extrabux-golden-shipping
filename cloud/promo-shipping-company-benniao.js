@@ -1,8 +1,8 @@
 'use strict';
 
 var AV = require('leanengine');
-var BlackFriday = AV.Object.extend('BlackFriday');
-var BlackFridayUser = AV.Object.extend('BlackFridayUser');
+var ShippingCompany = AV.Object.extend('ShippingCompany');
+var ShippingCompanyUser = AV.Object.extend('ShippingCompanyUser');
 
 var hash = require('./hash'); 
 
@@ -18,14 +18,14 @@ AV.Cloud.define('shipping-company-B', function (request, response) {
       //  return response.error('Success Error');
     }
     
-    var codeQuery = new AV.Query(BlackFriday);
+    var codeQuery = new AV.Query(ShippingCompany);
     
     codeQuery.equalTo('type', type);
 
     codeQuery.first({
         success: function (_data) {
             
-            var codeQuerySaveUser = new BlackFridayUser();
+            var codeQuerySaveUser = new ShippingCompanyUser();
             codeQuerySaveUser.set('code', _data.get('code'));
             codeQuerySaveUser.set('type', type);
             codeQuerySaveUser.set('userId', userId);
