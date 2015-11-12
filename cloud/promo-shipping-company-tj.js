@@ -25,7 +25,12 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
     codeQuery.first({
         success: function (_data) {
             
-            response.success(_data);
+            if(!_data) {
+                return response.success({
+                    success:-1,
+                    msg:'优惠码已被领取完'
+                });
+            }
             
             var codeQuerySaveUser = new ShippingCompanyUser();
             codeQuerySaveUser.set('code', _data.get('code'));
@@ -49,10 +54,7 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
             });
 
         },
-        error: function (err) {
-            
-            response.success('kingarthas',AV.Error);
-            
+        error: function (err) {            
             response.error(err);
         }
     });
