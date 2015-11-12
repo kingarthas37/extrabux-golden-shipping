@@ -11,7 +11,7 @@ require('./cloud/promo-2015-benniao');
 require('./cloud/promo-2015-sifang');
 
 require('./cloud/promo-shipping-company');
-require('./cloud/promo-shipping-company-tj');
+require('./cloud/promo-shipping-company-multiple');
  
 
 AV.Cloud.define('test', function (request, response) {
