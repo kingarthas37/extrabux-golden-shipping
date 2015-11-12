@@ -25,6 +25,8 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
     codeQuery.first({
         success: function (_data) {
             
+            response.success(_data);
+            
             var codeQuerySaveUser = new ShippingCompanyUser();
             codeQuerySaveUser.set('code', _data.get('code'));
             codeQuerySaveUser.set('type', type);
