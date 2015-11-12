@@ -48,6 +48,9 @@ AV.Cloud.define('shipping-company-TJ', function (request, response) {
 
         },
         error: function (err) {
+            
+            response.error(AV.Error);
+            
             response.error(err);
         }
     });
