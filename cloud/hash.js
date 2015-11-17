@@ -6,6 +6,4 @@ module.exports = function(signature,userId) {
     return hash === signature;
 };
 
-/*
-test the git
-*/
+
