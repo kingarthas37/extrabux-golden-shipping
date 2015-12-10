@@ -12,6 +12,8 @@ require('./cloud/promo-2015-sifang');
 
 require('./cloud/promo-shipping-company');
 require('./cloud/promo-shipping-company-multiple');
+
+require('./cloud/promo-japan');
  
 
 AV.Cloud.define('test', function (request, response) {
