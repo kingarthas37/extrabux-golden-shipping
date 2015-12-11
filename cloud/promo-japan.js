@@ -6,8 +6,8 @@ var async = require('async');
 
 //日淘抽奖
 AV.Cloud.define('japan-prize', function (req, res) {
-    
-    var userId = req.body.userId || '';
+
+    var userId = req.params.userId || '';
     
     async.waterfall([
         
