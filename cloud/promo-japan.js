@@ -44,7 +44,7 @@ AV.Cloud.define('japan-prize', function (req, res) {
 
             var type = Math.floor(Math.random()* 4 + 1);
             
-            fudai.set('userId',userId);
+            fudai.set('userId',parseInt(userId));
             fudai.set('type',type);
             fudai.save(null,{
                 success:function(data) {
