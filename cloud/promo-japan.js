@@ -4,10 +4,12 @@ var AV = require('leanengine');
 var JapanFudai = AV.Object.extend('JapanFudai');
 var async = require('async');
 
+
+
 //日淘抽奖
 AV.Cloud.define('japan-prize', function (req, res) {
 
-    var userId = req.params.userId || '';
+    var userId = parseInt(req.params.userId);
     
     async.waterfall([
         
@@ -24,6 +26,7 @@ AV.Cloud.define('japan-prize', function (req, res) {
 
             query.first({
                 success:function(user) {
+                    //如果该用户今天已抽过奖
                     if(user) {
                         return res.success({
                             success:0
@@ -60,8 +63,40 @@ AV.Cloud.define('japan-prize', function (req, res) {
         }
     
     ]);
-    
-    
-   
 
+});
+
+
+
+AV.Cloud.define('japan-prize-get', function (req, res) {
+
+    var userId = parseInt(req.params.userId);
+
+    var query = new AV.Query(JapanFudai);
+    query.equalTo('userId',parseInt(userId));
+
+    var startDate = new Date(new Date().toDateString()).getTime();
+    var endDate = startDate + 1000 * 60 * 60 * 24;
+
+    query.greaterThan('createdAt',new Date(startDate));
+    query.lessThan('createdAt',new Date(endDate));
+
+    query.first({
+        success:function(user) {
+            //如果该用户今天已抽过奖
+            if(user) {
+                return res.success({
+                    success:true
+                });
+            } else {
+                return res.success({
+                    success:false
+                });
+            }
+        },
+        error:function(err) {
+            res.error(err);
+        }
+    });
+    
 });
