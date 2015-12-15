@@ -7,7 +7,7 @@ var async = require('async');
 
 
 //日淘抽奖
-AV.Cloud.define('japan-prize', function (req, res) {
+AV.Cloud.define('japan-promo-prize', function (req, res) {
 
     var userId = parseInt(req.params.userId);
     
@@ -119,7 +119,7 @@ AV.Cloud.define('japan-prize', function (req, res) {
 
 
 
-AV.Cloud.define('japan-prize-get', function (req, res) {
+AV.Cloud.define('japan-promo-prize-get', function (req, res) {
 
     var userId = parseInt(req.params.userId);
 
