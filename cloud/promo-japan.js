@@ -7,7 +7,7 @@ var async = require('async');
 
 
 //日淘抽奖
-AV.Cloud.define('japan-promo-prize', function (req, res) {
+AV.Cloud.define('japan-promo-prizes', function (req, res) {
 
     var userId = parseInt(req.params.userId);
     
@@ -62,22 +62,23 @@ AV.Cloud.define('japan-promo-prize', function (req, res) {
                 
                 switch (type) {
 
-                    //共270份，每天10份，活动结束截止
-                    case 2:
-                        if(count < 11) {
-                            cb(null,2);
-                        } else {
-                            cb(null,4);
-                        }
-                    break;
-                    
                     //共7300份，每天270份，活动结束截止
-                    case 3:
+                    case 2:
                         if(count < 271) {
                             cb(null,3);
                         } else {
                             cb(null,4);
                         }
+                    break;
+                    
+                    //共270份，每天10份，活动结束截止
+                    case 3:
+                        if(count < 11) {
+                            cb(null,2);
+                        } else {
+                            cb(null,4);
+                        }
+                        
                     break;
                     
                     //最后一种，无限量，直接保存
