@@ -7,9 +7,10 @@ var async = require('async');
 
 
 //日淘抽奖
-AV.Cloud.define('japan-promo-bag', function (req, res) {
+AV.Cloud.define('japan-promo-bags', function (req, res) {
 
     var userId = parseInt(req.params.userId);
+    var isVip = req.params.isVip;
     
     async.waterfall([
         
@@ -34,8 +35,17 @@ AV.Cloud.define('japan-promo-bag', function (req, res) {
                         
                     //如果没有抽过，生成随机数2,3,4，传入    
                     } else {
-                        //结果 2,3,4
-                        var type = Math.floor(Math.random()* 3 + 2);
+                        //结果 2,3,4,如果是vip为2,4
+                        
+                        var type,typeArr;
+                        if(isVip) {
+                            typeArr = [2,4];
+                            type = typeArr[Math.floor(Math.random()* 2)];
+                        }else {
+                            typeArr = [2,3,4];
+                            type = typeArr[Math.floor(Math.random()* 3)];
+                        }
+                        
                         cb(null,type);
                     }
                 },
