@@ -7,7 +7,7 @@ var async = require('async');
 
 
 //日淘抽奖
-AV.Cloud.define('japan-promo-bags', function (req, res) {
+AV.Cloud.define('japan-promo-bags-get', function (req, res) {
 
     var userId = parseInt(req.params.userId);
     var isVip = req.params.isVip;
@@ -74,7 +74,7 @@ AV.Cloud.define('japan-promo-bags', function (req, res) {
 
                     //共7300份，每天270份，活动结束截止
                     case 2:
-                        if(count < 271) {
+                        if(count < 270) {
                             cb(null,2);
                         } else {
                             cb(null,4);
@@ -83,7 +83,7 @@ AV.Cloud.define('japan-promo-bags', function (req, res) {
                     
                     //共270份，每天10份，活动结束截止
                     case 3:
-                        if(count < 11) {
+                        if(count < 10) {
                             cb(null,3);
                         } else {
                             cb(null,4);
