@@ -6,7 +6,7 @@ var SeasonRedUser = AV.Object.extend('SeasonRed2016User');
 var companys = ['YD','WZY','TH','YS','SF','BD','B'];
 
 companys.forEach(function (n) {
-    AV.Cloud.define('2016-season-red-' + n, function (request, response) {
+    AV.Cloud.define('season-red-' + n, function (request, response) {
         seasonRedCodeCreate(request,response);
     });
 });
