@@ -14,7 +14,8 @@ require('./cloud/promo-shipping-company');
 require('./cloud/promo-shipping-company-multiple');
 
 require('./cloud/promo-japan');
- 
+require('./cloud/promo-season-red-2016');
+
 
 AV.Cloud.define('test', function (request, response) {
     response.success('test ok');
