@@ -4,7 +4,7 @@ var AV = require('leanengine');
 var H5TemplateLike = AV.Object.extend('H5TemplateLike');
 
 AV.Cloud.define('2016-h5-template-like', function (request, response) {
-    methods.like(request,response);
+    methods.belike(request,response);
 });
 
 AV.Cloud.define('2016-h5-template-cancel-like', function (request, response) {
@@ -12,7 +12,7 @@ AV.Cloud.define('2016-h5-template-cancel-like', function (request, response) {
 });
 
 var methods = {
-    like (request, response){
+    belike: function (request, response){
         let slug = request.params.slug;
         let likes = request.params.likes;
 
@@ -35,10 +35,9 @@ var methods = {
             }
         )
     },
-    cancelLike (request, response){
+    cancelLike: function (request, response){
         let slug=request.params.slug,likes=request.params.likes;
-
-        var likeQuery = new AV.Query(H5TemplateLike);
+        let likeQuery = new AV.Query(H5TemplateLike);
 
         likeQuery.equalTo('slug',slug);
 

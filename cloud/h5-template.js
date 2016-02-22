@@ -11,7 +11,7 @@ function H5TemplateVisit(request, response) {
 
     let slug = request.params.slug;
 
-    var newVisit = new H5TemplateVisitor();
+    let newVisit = new H5TemplateVisitor();
 
     newVisit.save({'slug':slug}).then(function(post){
         response.success({
