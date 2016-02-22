@@ -9,7 +9,7 @@ AV.Cloud.define('2016-h5-template-visit', function (request, response) {
 
 function H5TemplateVisit(request, response) {
 
-    var slug = request.params.slug;
+    let slug = request.params.slug;
 
     var newVisit = new H5TemplateVisitor();
 
