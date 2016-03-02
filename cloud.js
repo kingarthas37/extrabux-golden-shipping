@@ -17,6 +17,7 @@ require('./cloud/promo-japan');
 require('./cloud/promo-season-red-2016');
 require('./cloud/h5-template');
 require('./cloud/h5-template-like');
+require('./cloud/h5-template-analyze');
 
 
 AV.Cloud.define('test', function (request, response) {
