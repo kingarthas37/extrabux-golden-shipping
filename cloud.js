@@ -19,6 +19,7 @@ require('./cloud/h5-template');
 require('./cloud/h5-template-like');
 require('./cloud/h5-template-analyze');
 
+require('./cloud/kids');
 
 AV.Cloud.define('test', function (request, response) {
     response.success('test ok');
