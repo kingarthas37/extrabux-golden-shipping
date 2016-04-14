@@ -21,6 +21,8 @@ require('./cloud/h5-template-analyze');
 
 require('./cloud/kids');
 
+require('./cloud/promo-2016-17th-anniversary');
+
 AV.Cloud.define('test', function (request, response) {
     response.success('test ok');
 });
